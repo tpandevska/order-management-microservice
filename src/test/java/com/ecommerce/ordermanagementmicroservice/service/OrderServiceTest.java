@@ -28,6 +28,9 @@ public class OrderServiceTest {
 
     private Order order;
 
+    /**
+     * Sets Up example Order that will be used in the test scenarios.
+     */
     @BeforeEach
     public void setUp() {
         order = generateOrder();
@@ -44,5 +47,18 @@ public class OrderServiceTest {
         //THEN
         assertThat(result).isEqualTo(order);
         verify(orderRepository, times(1)).findById(Constants.ORDER_ID);
+    }
+
+    @Test
+    void createOrderSuccessfully() {
+        //GIVEN
+        when(orderRepository.save(any(Order.class))).thenReturn(order);
+
+        //WHEN
+        Order result = classUnderTest.createOrder(order).get();
+
+        //THEN
+        assertThat(result).isEqualTo(order);
+        verify(orderRepository, times(1)).save(order);
     }
 }

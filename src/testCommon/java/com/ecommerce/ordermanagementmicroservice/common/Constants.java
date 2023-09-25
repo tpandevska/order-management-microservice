@@ -9,7 +9,7 @@ public final class Constants {
 
     public static final Long USER_ID;
 
-    public static final LocalDate ORDER_DATE;
+    public static final LocalDateTime ORDER_DATE;
 
     public static final String BILLING_ADDRESS;
 
@@ -34,7 +34,7 @@ public final class Constants {
     static {
         ORDER_ID = 123456L;
         USER_ID = 100000L;
-        ORDER_DATE = LocalDate.now();
+        ORDER_DATE = LocalDateTime.now();
         BILLING_ADDRESS = "Dummy billing address";
         TOTAL_PRICE = 100.00;
         PAYMENT_METHOD = "Credit card";
