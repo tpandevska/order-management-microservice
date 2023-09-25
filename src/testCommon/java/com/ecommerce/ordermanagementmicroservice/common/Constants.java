@@ -1,6 +1,5 @@
 package com.ecommerce.ordermanagementmicroservice.common;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public final class Constants {
