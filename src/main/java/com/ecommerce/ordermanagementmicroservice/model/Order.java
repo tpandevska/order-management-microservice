@@ -38,9 +38,9 @@ public class Order {
 
     private Double subTotal;
 
-    private Double taxAmount;
+    private Integer taxAmount;
 
-    private Integer trackingNumber;
+    private Long trackingNumber;
 
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
