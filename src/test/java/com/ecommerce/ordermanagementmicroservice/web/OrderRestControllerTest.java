@@ -30,8 +30,11 @@ public class OrderRestControllerTest {
 
     private Order order;
 
+    /**
+     * Sets Up example Order that will be used in the test scenarios.
+     */
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         order = generateOrder();
     }
 
@@ -60,5 +63,19 @@ public class OrderRestControllerTest {
         //THEN
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
         verify(orderService, times(1)).findOrderById(Constants.ORDER_ID);
+    }
+
+    @Test
+    void saveOrderSuccessfully() {
+        //GIVEN
+        when(orderService.createOrder(any(Order.class))).thenReturn(Optional.of(order));
+
+        //WHEN
+        ResponseEntity<Order> response = classUnderTest.createOrder(order);
+
+        //THEN
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(order);
+        verify(orderService, times(1)).createOrder(order);
     }
 }

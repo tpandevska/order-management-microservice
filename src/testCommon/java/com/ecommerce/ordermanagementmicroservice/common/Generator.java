@@ -9,6 +9,11 @@ import java.util.List;
 
 public class Generator {
 
+    /**
+     * Generates Example order
+     *
+     * @return order
+     */
     public static Order generateOrder() {
         Order order = new Order();
 
